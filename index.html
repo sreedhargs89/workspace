@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Workspace for a list of usefull links">
+  <meta name="author" content="Dennis Poeschl">
+
+  <title>Workspace</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+  <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script type="text/javascript">
+    function Change(linkName) {
+      // Top Menu changes
+      var elements = document.getElementsByClassName("top-menu active")[0];
+      console.log(elements)
+      elements.classList.remove("active");
+      document.getElementById(linkName).classList.add("active");
+
+      // Section changes
+      var sections = document.getElementsByClassName("sections")
+      for (let section of sections) {
+        section.classList.add("d-none")
+      }
+      sectionName = linkName.replace("nav-", "section-")
+      document.getElementById(sectionName).classList.remove("d-none");
+    }
+  </script>
+  <style>
+    .btn-group.special {
+      display: flex;
+    }
+
+    .special .btn {
+      flex: 1
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-info bg-gradient">
+    <div class="container-lg">
+      <div class="navbar-brand"><img src="assets/img/chip_logo.svg" width="40" height="40"
+          class="d-inline-block align-center" alt="Logo" loading="lazy"> <span class="align-middle">Workspace</span>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarWorkspace">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarWorkspace">
+        <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active top-menu" href="javascript:void(0)" id="nav-cf-ops" onclick="Change('nav-cf-ops')">CF-Ops</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link top-menu" href="javascript:void(0)" id="nav-sap" onclick="Change('nav-sap')">SAP</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link top-menu" href="javascript:void(0)" id="nav-vt" onclick="Change('nav-vt')">VT</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link top-menu" href="javascript:void(0)" id="nav-cpi" onclick="Change('nav-cpi')">CPI</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link top-menu" href="javascript:void(0)" id="nav-archive" onclick="Change('nav-archive')">Archive</a>
+          </li>
+        </ul>
+        <a href="https://google.com/" target="_blank"><button type="button" class="btn btn-light">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z">
+              </path>
+              <path fill-rule="evenodd"
+                d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"></path>
+            </svg>
+          </button></a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CF-Ops SECTION -->
+  <section id="section-cf-ops" class="sections">
+    <div class="container-lg py-5">
+      <h2>Cloud Foundry Landscape Team (CF-Ops)</h2>
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a class="nav-link active" id="section-cf-ops-daily" data-toggle="tab" href="#tab-ops-daily" role="tab">Daily</a>
+        </li>
+        <li class="nav-item" role="tablist">
+          <a class="nav-link" id="section-cf-ops-github" data-toggle="tab" href="#tab-ops-github" role="tab">Github</a>
+        </li>
+        <li class="nav-item" role="tablist">
+          <a class="nav-link" id="section-cf-ops-oow" data-toggle="tab" href="#tab-ops-oow" role="tab">Operator of the Week (OoW)</a>
+        </li>
+        <li class="nav-item" role="tablist">
+          <a class="nav-link" id="section-cf-ops-updater" data-toggle="tab" href="#tab-ops-updater" role="tab">Updater</a>
+        </li>
+        <li class="nav-item" role="tablist">
+          <a class="nav-link" id="section-cf-ops-chaosmonkey" data-toggle="tab" href="#tab-ops-chaosmonkey" role="tab">Chaosmonkey</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="tab-ops-daily" role="tabpanel">
+          <div class="btn-group special p-2" role="group">
+            <a class="btn btn-outline-info" href="https://jira.tools.sap/secure/Dashboard.jspa?selectPageId=116295" target="_blank" role="button">Jira Dashboard</a>
+            <a class="btn btn-outline-info" href="https://jira.tools.sap/secure/RapidBoard.jspa?rapidView=36942" target="_blank" role="button">LLAMA Kanban</a>
+            <a class="btn btn-outline-info" href="https://sapit-home-prod-004.launchpad.cfapps.eu10.hana.ondemand.com/site#lunch-menu" target="_blank" role="button">Lunch Menu</a>
+            <a class="btn btn-outline-info" href="https://jenkins-prod.sbz.c.eu-de-1.cloud.sap/" target="_blank" role="button">Jenkins Prod</a>
+            <a class="btn btn-outline-info" href="https://vault.tools.sap/" target="_blank" role="button">Vault</a>
+          </div>
+          <div class="btn-group special p-2" role="group">
+            <a class="btn btn-outline-info" href="https://ops2go.internal.cfapps.eu12.hana.ondemand.com/" target="_blank" role="button">Ops2go</a>
+            <a class="btn btn-outline-info" href="https://wiki.wdf.sap.corp/wiki/pages/viewpage.action?spaceKey=IoTSiemens&title=CF+Landscape+Team" target="_blank" role="button">Wiki Team</a>
+            <a class="btn btn-outline-info" href="https://sap.sharepoint.com/sites/105779/Shared%20Documents" target="_blank" role="button">Team Sharepoint</a>
+            <a class="btn btn-outline-info" href="https://cfops-dashboard.sbz.c.eu-de-1.cloud.sap/?orgId=1" target="_blank" role="button">Ops Grafana</a>
+            <a class="btn btn-outline-info" href="https://sap.sharepoint.com/:x:/r/sites/105779/Shared%20Documents/Team%20Only/Planning/Team%20planning.xlsx?d=wf1a5ec71342d4f9787801f7c50372133&csf=1&web=1&e=xCbi1c" target="_blank" role="button">Team planning</a>
+          </div>
+          <div class="btn-group special p-2" role="group">
+            <a class="btn btn-outline-info" href="https://wiki.wdf.sap.corp/wiki/display/IoTSiemens/Tasks" target="_blank" role="button">Tasks</a>
+            <a class="btn btn-outline-info" href="https://cx.wdf.sap.corp/" target="_blank" role="button">Checkmarx</a>
+            <a class="btn btn-outline-info" href="#" target="_blank" role="button"></a>
+            <a class="btn btn-outline-info" href="#" target="_blank" role="button"></a>
+            <a class="btn btn-outline-info" href="#" target="_blank" role="button"></a>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="tab-ops-github" role="tabpanel">
+          <div class="btn-group special p-2" role="group">
+            <a class="btn btn-outline-info" href="https://github.tools.sap/cloudfoundry/product-cf-hcp" target="_blank" role="button">product-cf-hcp</a>
+            <a class="btn btn-outline-info" href="https://github.wdf.sap.corp/cf-internal-realm/jobscripts" target="_blank" role="button">jobscripts</a>
+            <a class="btn btn-outline-info" href="https://github.tools.sap/cp-core/chaosmonkey" target="_blank" role="button">chaosmonkey</a>
+            <a class="btn btn-outline-info" href="https://github.wdf.sap.corp/cf-internal-realm" target="_blank" role="button">cf-internal-realm</a>
+            <a class="btn btn-outline-info" href="https://github.tools.sap/cloudfoundry" target="_blank" role="button">cloudfoundry</a>
+          </div>
+          <div class="btn-group special p-2" role="group">
+            <a class="btn btn-outline-info" href="https://github.tools.sap/pulls/review-requested" target="_blank" role="button">Github Tools Review</a>
+            <a class="btn btn-outline-info" href="https://github.wdf.sap.corp/pulls/review-requested" target="_blank" role="button">Github WDF Review</a>
+            <a class="btn btn-outline-info" href="#" target="_blank" role="button"></a>
+            <a class="btn btn-outline-info" href="#" target="_blank" role="button"></a>
+            <a class="btn btn-outline-info" href="#" target="_blank" role="button"></a>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="tab-ops-oow" role="tabpanel">
+          <div class="btn-group special p-2" role="group">
+            <a class="btn btn-outline-info" href="https://jira.tools.sap/secure/Dashboard.jspa?selectPageId=117109" target="_blank" role="button">CF-OoW</a>
+            <a class="btn btn-outline-info" href="https://cfops-dashboard.sbz.c.eu-de-1.cloud.sap/d/000000143/overview?orgId=1&refresh=2m" target="_blank" role="button">Grafana Overview</a>
+            <a class="btn btn-outline-info" href="https://cfops-dashboard.sbz.c.eu-de-1.cloud.sap/d/000000385/landscape-alerts?orgId=1&refresh=1m" target="_blank" role="button">Landscapes Alerts</a>
+            <a class="btn btn-outline-info" href="https://wiki.wdf.sap.corp/wiki/display/IoTSiemens/OoW+Responsibilities" target="_blank" role="button">Responsibilities Wiki</a>
+            <a class="btn btn-outline-info" href="https://wiki.one.int.sap/wiki/display/IoTSiemens/Improve+Landscape+Alerts" target="_blank" role="button">Improve Landscape Alerts</a>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="tab-ops-updater" role="tabpanel">
+          <div class="btn-group special p-2" role="group">
+            <a class="btn btn-outline-info" href="https://cfops-dashboard.sbz.c.eu-de-1.cloud.sap/d/GxXp_7iIk/update-central?orgId=1&refresh=15m" target="_blank" role="button">Update Central</a>
+            <a class="btn btn-outline-info" href="https://cfops-dashboard.sbz.c.eu-de-1.cloud.sap/d/IkziiZAMz/concourse-update-pipeline-job-status?orgId=1&refresh=15m&from=now-6h&to=now&var-Type=canary&var-Type=hotfix&var-Type=integrate&var-Type=live&var-Type=opsdev&var-Landscape=All&var-jobStatus=0" target="_blank" role="button">Concourse Update Pipeline Job Status</a>
+            <a class="btn btn-outline-info" href="https://cfops-dashboard.sbz.c.eu-de-1.cloud.sap/d/e2WVp_uiz/concourse_status?orgId=1&refresh=5m&from=now-24h&to=now&var-Type=canary&var-Type=hotfix&var-Type=integrate&var-Type=live&var-Type=null&var-Landscape=All&var-Pipeline=landscape-monitoring-pipeline&var-Pipeline=landscape-update-pipeline&var-Pipeline=ops-pipeline&var-Component=All&var-ShowAll=0" target="_blank" role="button">Concourse_Status (old)</a>
+            <a class="btn btn-outline-info" href="https://cfops-dashboard.sbz.c.eu-de-1.cloud.sap/d/5o54ceRmz/landscape-deployment-status?orgId=1&refresh=5m" target="_blank" role="button">Landscape Deployment Status</a>
+            <a class="btn btn-outline-info" href="https://hotfix-status-overview.internal.cfapps.eu12.hana.ondemand.com/" target="_blank" role="button">Hotfix Status Overview</a>
+          </div>
+          <div class="btn-group special p-2" role="group">
+            <a class="btn btn-outline-info" href="https://jira.tools.sap/secure/RapidBoard.jspa?rapidView=35828&projectKey=HCPCM&quickFilter=194472" target="_blank" role="button">Kanban 9:45 LSS</a>
+            <a class="btn btn-outline-info" href="https://jira.tools.sap/issues/?filter=296857" target="_blank" role="button">HotfixAutomationBlockers</a>
+            <a class="btn btn-outline-info" href="https://jira.tools.sap/secure/Dashboard.jspa?selectPageId=117110" target="_blank" role="button">CF-Ops - Updater Dashboard</a>
+            <a class="btn btn-outline-info" href="https://cfops-dashboard.sbz.c.eu-de-1.cloud.sap/d/AFMjh5oGk/audit-lss-updates-overview?orgId=1" target="_blank" role="button">Audit LSS Updates</a>
+            <a class="btn btn-outline-info" href="https://wiki.wdf.sap.corp/wiki/display/IoTSiemens/Using+NGPBUGs" target="_blank" role="button">Using NGPBugs</a>
+          </div>
+          <div class="btn-group special p-2" role="group">
+            <a class="btn btn-outline-info" href="https://qpayrfr8dh9z4.int.sap.eu2.hana.ondemand.com/com.sap.hcp.cf.qpa/timeline/chart" target="_blank" role="button">QPA Chart</a>
+            <a class="btn btn-outline-info" href="https://qpayrfr8dh9z4.int.sap.eu2.hana.ondemand.com/com.sap.hcp.cf.qpa/issue-tracking/operations" target="_blank" role="button">QPA Toolbox</a>
+            <a class="btn btn-outline-info" href="https://wiki.one.int.sap/wiki/display/IoTSiemens/CF+Updater+Responsibilities" target="_blank" role="button">CF Updater Responsibilities</a>
+            <a class="btn btn-outline-info" href="https://wiki.one.int.sap/wiki/display/IoTSiemens/ActiveCAMProfiles" target="_blank" role="button">Active CAM profiles</a>
+            <a class="btn btn-outline-info" href="#" target="_blank" role="button"></a>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="tab-ops-chaosmonkey" role="tabpanel">
+          <div class="btn-group special p-2" role="group">
+            <a class="btn btn-outline-info" href="https://cfops-dashboard.sbz.c.eu-de-1.cloud.sap/d/lHWOsPDIk/chaosmonkey-update-pipeline-status?orgId=1&refresh=5m" target="_blank" role="button">Update Pipeline status</a>
+            <a class="btn btn-outline-info" href="https://cfops-dashboard.sbz.c.eu-de-1.cloud.sap/d/grFQlEvIk/chaosmonkey-monitoring-pipeline-status?orgId=1&refresh=5m" target="_blank" role="button">Monitoring status</a>
+            <a class="btn btn-outline-info" href="https://cfops-dashboard.sbz.c.eu-de-1.cloud.sap/dashboards/f/hV1EWnD4k/chaosmonkey" target="_blank" role="button">Grafana Dashboard Group</a>
+            <a class="btn btn-outline-info" href="https://sapcpcfchaosmonkey.jaas-gcp.cloud.sap.corp/" target="_blank" role="button">JaaS</a>
+            <a class="btn btn-outline-info" href="https://cfops-dashboard.sbz.c.eu-de-1.cloud.sap/d/cgmlV4vVk/active-cf-instances-and-bindings?orgId=1" target="_blank" role="button">Active Instances</a>
+          </div>
+          <div class="btn-group special p-2" role="group">
+            <a class="btn btn-outline-info" href="https://sirius.tools.sap.corp/sirius/#/program/4C367FAA2E9DA64DEECBFCDE84368ECD" target="_blank" role="button">Sirius Delivery BTP/CF</a>
+            <a class="btn btn-outline-info" href="#" target="_blank" role="button"></a>
+            <a class="btn btn-outline-info" href="#" target="_blank" role="button"></a>
+            <a class="btn btn-outline-info" href="#" target="_blank" role="button"></a>
+            <a class="btn btn-outline-info" href="#" target="_blank" role="button"></a>
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- SAP SECTION -->
+  <section id="section-sap" class="sections d-none">
+    <div class="container-lg py-5">
+      <h2>SAP</h2>
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a class="nav-link active" id="section-sap-allgemein" data-toggle="tab" href="#tab-allgemein" role="tab">Allgemein</a>
+        </li>
+        <li class="nav-item" role="tablist">
+          <a class="nav-link" id="section-sap-sonstiges" data-toggle="tab" href="#tab-firmenwagen" role="tab">Firmenwagen</a>
+        </li>
+        <li class="nav-item" role="tablist">
+          <a class="nav-link" id="section-sap-sonstiges" data-toggle="tab" href="#tab-sonstiges" role="tab">Sonstiges</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="tab-allgemein" role="tabpanel">
+          <div class="btn-group special p-2" role="group">
+            <a class="btn btn-outline-info" href="https://one.int.sap/home" target="_blank" role="button">SAP One</a>
+            <a class="btn btn-outline-info" href="https://search.int.sap/" target="_blank" role="button">SAP Search</a>
+            <a class="btn btn-outline-info" href="https://workzone.one.int.sap/site#workzone-home&/home" target="_blank" role="button">SAP Workzone</a>
+            <a class="btn btn-outline-info" href="https://people.wdf.sap.corp/" target="_blank" role="button">People@SAP</a>
+            <a class="btn btn-outline-info" href="https://profiles.wdf.sap.corp/" target="_blank" role="button">DL@SAP</a>
+          </div>
+          <div class="btn-group special p-2" role="group">
+            <a class="btn btn-outline-info" href="https://performancemanager5.successfactors.eu/sf/home?bplte_company=SAP#Shell-home" target="_blank" role="button">Success Map</a>
+            <a class="btn btn-outline-info" href="https://www.sapbrandtools.com/imagelibrary/" target="_blank" role="button">SAP Image Library</a>
+            <a class="btn btn-outline-info" href="https://sapit-home-prod-004.launchpad.cfapps.eu10.hana.ondemand.com/site#my-events" target="_blank" role="button">Sign Up</a>
+            <a class="btn btn-outline-info" href="https://sapit-home-prod-004.launchpad.cfapps.eu10.hana.ondemand.com/" target="_blank" role="button">Fiori Launchpad</a>
+            <a class="btn btn-outline-info" href="https://accounts.sap.com/saml2/idp/sso?sp=https%3A%2F%2Feu1.concursolutions.com" target="_blank" role="button">SAP Concur</a>
+          </div>
+          <div class="btn-group special p-2" role="group">
+            <a class="btn btn-outline-info" href="https://sap.sharepoint.com/sites/127017" target="_blank" role="button">SAP Learning</a>
+            <a class="btn btn-outline-info" href="#" target="_blank" role="button"></a>
+            <a class="btn btn-outline-info" href="#" target="_blank" role="button"></a>
+            <a class="btn btn-outline-info" href="#" target="_blank" role="button"></a>
+            <a class="btn btn-outline-info" href="#" target="_blank" role="button"></a>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="tab-firmenwagen" role="tabpanel">
+          <div class="btn-group special p-2" role="group">
+            <a class="btn btn-outline-info" href="https://pneumobil.de/termin/index.php/termin/login1.php" target="_blank" role="button">Pneumobil - Drivers Point</a>
+            <a class="btn btn-outline-info" href="https://dewdfwkn04.wdf.global.corp.sap/a.kcp" target="_blank" role="button">Service Point WDF</a>
+            <a class="btn btn-outline-info" href="https://sapit-home-prod-004.launchpad.cfapps.eu10.hana.ondemand.com/site#companycarexpenses-Display" target="_blank" role="button">Company Car Expenses</a>
+            <a class="btn btn-outline-info" href="#" target="_blank" role="button"></a>
+            <a class="btn btn-outline-info" href="#" target="_blank" role="button"></a>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="tab-sonstiges" role="tabpanel">
+          <div class="btn-group special p-2" role="group">
+            <a class="btn btn-outline-info" href="http://sapprinting.wdf.sap.corp:1080/home.aspx" target="_blank" role="button">Printer SAP (IE)</a>
+            <a class="btn btn-outline-info" href="https://dpmc-sapitcloud.dispatcher.hana.ondemand.com/webapp/index.html" target="_blank" role="button">Digital Print Media Center ROT01 RE.54</a>
+            <a class="btn btn-outline-info" href="https://sat.wdf.global.corp.sap/" target="_blank" role="button">Share Admin Tool</a>
+            <a class="btn btn-outline-info" href="https://one.int.sap/functional_areas/development/authorizations_and_passwords" target="_blank" role="button">Development Landscape Management (DLM)</a>
+            <a class="btn btn-outline-info" href="https://sapit-home-prod-004.launchpad.cfapps.eu10.hana.ondemand.com/site#BuildingFinder-Display" target="_blank" role="button">Facility Building Finder</a>
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- VT SECTION -->
+  <section id="section-vt" class="sections d-none">
+    <div class="container-lg py-5">
+      <h2>Vocational Training</h2>
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a class="nav-link active" id="section-vt-ausbildung" data-toggle="tab" href="#tab-ausbildung" role="tab">Ausbildung</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="tab-ausbildung" role="tabpanel">
+          <div class="btn-group special p-2" role="group">
+            <a class="btn btn-outline-info" href="https://sapit-home-prod-004.launchpad.cfapps.eu10.hana.ondemand.com/site#talentmarketplace-Display&/" target="_blank" role="button">SAP Marketplace</a>
+            <a class="btn btn-outline-info" href="https://sap.sharepoint.com/sites/203033" target="_blank" role="button">JAV Sharepoint</a>
+            <a class="btn btn-outline-info" href="https://workzone.one.int.sap/site#workzone-home&/groups/Hjvehucl6DmuDMstslZ3xH/overview_page/UDxqQGd9ZJTHYXm3aBKam4" target="_blank" role="button">VT@Germany Workzone</a>
+            <a class="btn btn-outline-info" href="https://workzone.one.int.sap/site#workzone-home&/groups/iNZXOhWitYH2P8eT9IUAGQ/overview_page/x1IJd8SVe1iYvFMwoJitDS" target="_blank" role="button">Dezi Workzone</a>
+            <a class="btn btn-outline-info" href="https://github.wdf.sap.corp/vtgermany/LaTeX-Template-DHBW/" target="_blank" role="button">LaTeX Template</a>
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- CPI SECTION -->
+  <section id="section-cpi" class="sections d-none">
+    <div class="container-lg py-5">
+      <h2>Cloud Platform Integration</h2>
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a class="nav-link active" id="section-cpi-integration" data-toggle="tab" href="#tab-integration" role="tab">Integration</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="tab-integration" role="tabpanel">
+          <div class="btn-group special p-2" role="group">
+            <a class="btn btn-outline-info" href="https://projectportal.tools.sap/" target="_blank" role="button">Projectportal</a>
+            <a class="btn btn-outline-info" href="https://sapjira.wdf.sap.corp/" target="_blank" role="button">JIRA</a>
+            <a class="btn btn-outline-info" href="https://dewdfglp01185.wdf.sap.corp:8443/view/Blue/" target="_blank" role="button">Jenkins</a>
+            <a class="btn btn-outline-info" href="http://nexus.wdf.sap.corp:8081/" target="_blank" role="button">Nexus</a>
+            <a class="btn btn-outline-info" href="https://wiki.wdf.sap.corp/wiki/display/Avatar/Blue" target="_blank" role="button">Wiki Team Blue</a>
+          </div>
+          <div class="btn-group special p-2" role="group">
+            <a class="btn btn-outline-info" href="https://wiki.wdf.sap.corp/wiki/display/SOA/CPI+Home" target="_blank" role="button">CPI Wiki</a>
+            <a class="btn btn-outline-info" href="https://wiki.wdf.sap.corp/wiki/display/CPI/BCP+Components" target="_blank" role="button">BCP Components</a>
+            <a class="btn btn-outline-info" href="https://gkecpi.jaas-gcp.cloud.sap.corp/" target="_blank" role="button">GKE JaaS</a>
+            <a class="btn btn-outline-info" href="https://cpiblue.jaas-gcp.cloud.sap.corp/" target="_blank" role="button">CPI Blue JaaS</a>
+            <a class="btn btn-outline-info" href="https://wiki.wdf.sap.corp/wiki/display/Avatar/Developer+Cookbook" target="_blank" role="button">Developer Cookbook</a>
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- ARCHIVE SECTION -->
+  <section id="section-archive" class="sections d-none">
+    <div class="container-lg py-5">
+      <h2>Archive</h2>
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a class="nav-link active" id="section-archive-general" data-toggle="tab" href="#tab-general" role="tab">General</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="tab-general" role="tabpanel">
+          <div class="btn-group special p-2" role="group">
+            <a class="btn btn-outline-info" href="https://bridge.tools.only.sap/#/" target="_blank" role="button">SAP Bridge</a>
+            <a class="btn btn-outline-info" href="https://listserv.sap.corp/" target="_blank" role="button">Mailing lists</a>
+            <a class="btn btn-outline-info" href="https://github.com/bayandin/awesome-awesomeness" target="_blank" role="button">Github Awesomeness</a>
+            <a class="btn btn-outline-info" href="#" target="_blank" role="button"></a>
+            <a class="btn btn-outline-info" href="#" target="_blank" role="button"></a>
+          </div>
+        </div>
+    </div>
+  </section>
+
+</body>
+</html>
